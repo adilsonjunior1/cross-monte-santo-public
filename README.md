@@ -3,6 +3,8 @@
 Sistema **personalizado e exclusivo** desenvolvido para a **Cross Monte Santo**, voltado à gestão completa de academias de CrossFit.
 O projeto foi construído sob medida, atendendo às necessidades específicas do cliente, com foco em desempenho, segurança e praticidade na administração diária.
 
+👉 [https://cross-monte-santo-app-uyj2.vercel.app/](https://cross-monte-santo-app-uyj2.vercel.app/)
+
 > ⚠️ **Atenção:** Este é um sistema proprietário desenvolvido sob contrato.
 > O código, design e funcionalidades **não devem ser reproduzidos, redistribuídos ou utilizados** sem autorização expressa do desenvolvedor.
 
