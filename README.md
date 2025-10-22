@@ -69,7 +69,7 @@ O projeto foi construído sob medida, atendendo às necessidades específicas do
 
 * Instalação direta no dispositivo (Android, iOS, Desktop)
 
-* Acesso offline a funcionalidades essenciais
+* Funcionalidades essenciais
 
 * Carregamento rápido com cache inteligente
 
