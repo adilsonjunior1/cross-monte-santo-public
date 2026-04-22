@@ -1,12 +1,10 @@
 # 🏋️ Cross Monte Santo - Sistema de Gestão de Academia
 
-Sistema **personalizado e exclusivo** desenvolvido para a **Cross Monte Santo**, voltado à gestão completa de academias de CrossFit.
-O projeto foi construído sob medida, atendendo às necessidades específicas do cliente, com foco em desempenho, segurança e praticidade na administração diária.
+Sistema personalizado e exclusivo desenvolvido para a **Cross Monte Santo**, voltado à gestão completa de academias de CrossFit. O projeto foi construído sob medida, atendendo às necessidades específicas do cliente, com foco em desempenho, segurança, engajamento dos alunos e praticidade na administração diária.
 
 👉 [http://www.crossmontesanto.com.br](http://www.crossmontesanto.com.br)
 
-> ⚠️ **Atenção:** Este é um sistema proprietário desenvolvido sob contrato.
-> O código, design e funcionalidades **não devem ser reproduzidos, redistribuídos ou utilizados** sem autorização expressa do desenvolvedor.
+⚠️ **Atenção:** Este é um sistema proprietário desenvolvido sob contrato. O código, design e funcionalidades não devem ser reproduzidos, redistribuídos ou utilizados sem autorização expressa do desenvolvedor.
 
 ---
 
@@ -14,22 +12,33 @@ O projeto foi construído sob medida, atendendo às necessidades específicas do
 
 ### 👨‍🎓 Área do Aluno
 
-* Login via CPF (sem senha)
-* Dashboard personalizado com status de pagamento
-* Acesso ao **Treino do Dia (WOD)**
-* Sistema de **check-in** em aulas com controle de vagas
-* Registro e histórico de **PRs (recordes pessoais)**
+* Login simplificado via **CPF** (sem senha), com sessão persistente
+* Dashboard personalizado com **status do plano** e contagem regressiva de vencimento (banner ≤ 15 dias)
+* Acesso ao **Treino do Dia (WOD)** publicado pela academia
+* **Check-in por QR Code** fixo na unidade (1 presença por dia)
+* **Meus PRs** — registro e histórico dos 6 movimentos fundamentais (Snatch, Clean, Jerk, Back Squat, Front Squat, Deadlift)
+* **Ranking de Presença** com ciclos, prêmios e quadro de campeões
+* **Avisos da academia** com marcação de leitura
+* **Compartilhamento do treino** como card de imagem para redes sociais
+* **Mensagens motivacionais diárias** personalizadas
+* **Foto de perfil** com upload e ajuste (mover + zoom)
 * Notificações automáticas de vencimento
 
 ### 👨‍💼 Área Administrativa
 
-* CRUD completo de alunos e treinos
-* Controle de status de matrícula (Ativo, Pendente, Vencido)
-* Criação e edição de treinos diários
-* Agendamento e gestão de aulas com capacidade máxima
-* Visualização de check-ins em tempo real
+* CRUD completo de **alunos**, **treinos**, **horários**, **avisos** e **administradores**
+* **Status automático de matrícula** (Aprovado, Pendente, Vencido) — atualizado por cron e em tempo real
+* **Status de engajamento do aluno** (🟢 Engajado · 🟡 Regular · 🔴 Em risco) calculado pelos check-ins dos últimos 30 dias
+* Criação e edição de treinos diários, com **histórico organizado** (últimos 6 dias + arquivo)
+* Agendamento e gestão de aulas com **capacidade máxima**
+* **Visualização de check-ins em tempo real**
+* **Aba Financeiro** — receita por regime de caixa, despesas, lucro e indicadores
+* **Aba Frequência** — visualização dos check-ins por dia
+* **Aba Metas** — acompanhamento de objetivos da academia
+* **Gerenciador de Ranking** — abertura, encerramento e premiação de ciclos
+* **Dashboard interativo** com cards-filtro
 * Cadastro e gerenciamento de administradores
-* Dashboard interativo e responsivo (desktop e mobile)
+* Interface 100% responsiva (desktop e mobile)
 
 ---
 
@@ -37,47 +46,45 @@ O projeto foi construído sob medida, atendendo às necessidades específicas do
 
 ### Frontend
 
-* **React 18 + TypeScript**
-* **Vite** – Build e Dev Server rápido
-* **Tailwind CSS** – Estilização moderna
-* **shadcn/ui** + **Radix UI** – Componentização acessível
-* **React Router DOM** – Roteamento
-* **Lucide React** – Ícones otimizados
-* **React Hook Form + Zod** – Validação de formulários
-* **date-fns** – Manipulação de datas
-* **Sonner** – Sistema de notificações
+* **React 18 + TypeScript 5**
+* **Vite 5**
+* **Tailwind CSS 3**
+* **shadcn/ui + Radix UI**
+* **React Router DOM 6**
+* **TanStack Query**
+* **Lucide React**
+* **React Hook Form + Zod**
+* **date-fns**
+* **Recharts**
+* **html5-qrcode + qrcode.react**
+* **Sonner**
 
 ### Backend
 
-* **Supabase** (PostgreSQL, Auth, Edge Functions, RLS)
-* **Edge Functions** personalizadas:
+* **Supabase** (PostgreSQL, Auth, Storage, Edge Functions, RLS)
 
-  * `student-login`
-  * `create-admin`
-  * `delete-users`
+**Edge Functions:**
 
-### Infraestrutura
+* `student-login`
+* `create-admin`
+* `delete-users`
 
-* **Vercel** – Deploy e CI/CD
-* **GitHub** – Versionamento
+**Funções SQL:** `qr_checkin`, `update_expired_students`, `update_student_avatar`, `has_role`
+
+* **Cron Job** para atualização de planos vencidos
 
 ---
 
-### ⚡ Progressive Web App (PWA)
+## ⚡ Progressive Web App (PWA)
 
-* O sistema foi desenvolvido como um PWA (Progressive Web App), oferecendo:
+O sistema foi desenvolvido como um PWA (Progressive Web App), oferecendo:
 
 * Instalação direta no dispositivo (Android, iOS, Desktop)
-
-* Funcionalidades essenciais
-
-* Carregamento rápido com cache inteligente
-
-* Ícones otimizados (192x192 e 512x512)
-
+* Carregamento rápido com estratégia de cache
+* Atualização automática com aviso de nova versão
 * Manifest e Service Worker configurados
 
-💡 Permite que a academia e os alunos acessem o sistema como se fosse um aplicativo nativo, diretamente da tela inicial do celular.
+💡 Permite uso como aplicativo nativo diretamente da tela inicial.
 
 ---
 
@@ -85,29 +92,38 @@ O projeto foi construído sob medida, atendendo às necessidades específicas do
 
 Principais tabelas:
 
-* `students` – Alunos (nome, CPF, status, plano, vencimento)
-* `workouts` – Treinos do dia
-* `class_schedules` – Horários de aulas
-* `class_checkins` – Check-ins de presença
-* `student_prs` – Recordes pessoais
-* `user_roles` – Permissões (admin/aluno)
+* `students`
+* `workouts`
+* `class_schedules`
+* `class_checkins`
+* `student_prs`
+* `student_progress`
+* `student_goals`
+* `announcements` / `announcement_reads`
+* `attendance_rankings` / `ranking_champions`
+* `expenses`
+* `goals`
+* `user_roles`
+* `profiles`
 
-**Segurança:**
-Todas as tabelas utilizam **Row Level Security (RLS)** para garantir acesso restrito e seguro aos dados.
+**Storage:** `student-avatars`
+
+**Segurança:** Row Level Security (RLS) em todas as tabelas
 
 ---
 
 ## 🔐 Autenticação
 
-* **Alunos:** via CPF (Edge Function `student-login`)
-* **Administradores:** via Supabase Auth (e-mail e senha)
-* Controle de acesso baseado em **roles** e políticas de segurança
+* **Alunos:** login via CPF com sessão persistente
+* **Administradores:** login com e-mail e senha
+* Controle de acesso baseado em roles (`user_roles`)
+* Validação de CPF no cadastro
 
 ---
 
 ## 📱 Responsividade
 
-Interface totalmente responsiva, otimizada para:
+Compatível com:
 
 * 📱 Mobile
 * 💻 Tablet
@@ -115,10 +131,19 @@ Interface totalmente responsiva, otimizada para:
 
 ---
 
+## 💰 Planos Suportados
+
+* 6× por semana
+* 3× por semana
+* 2× por semana
+
+Controle financeiro baseado em **regime de caixa**.
+
+---
+
 ## 📦 Deploy
 
-O sistema está hospedado na Vercel com deploy contínuo.
-Ambiente de produção:
+Hospedado na Vercel com deploy contínuo:
 👉 [https://cross-monte-santo-app-uyj2.vercel.app/](https://cross-monte-santo-app-uyj2.vercel.app/)
 
 ---
@@ -126,22 +151,22 @@ Ambiente de produção:
 ## 🧩 Arquitetura e Manutenção
 
 * Estrutura modular e escalável
-* Padrão de componentes reutilizáveis
-* Tipagem estática com TypeScript
-* Edge Functions isoladas para segurança
-* Integração contínua via GitHub e Vercel
+* Componentização reutilizável
+* Tipagem com TypeScript
+* Edge Functions para operações sensíveis
+* Integração contínua com GitHub e Vercel
 
 ---
 
 ## 🧠 Observações Importantes
 
-* Este sistema **não é open source**.
-* O código é de uso **exclusivo do cliente Cross Monte Santo**.
-* A reprodução, modificação ou redistribuição **não são permitidas**.
-* Caso queira desenvolver um sistema semelhante, entre em contato para um projeto **personalizado e licenciado**.
+* Sistema **proprietário**
+* Uso exclusivo da Cross Monte Santo
+* Reprodução ou redistribuição não permitidas
+* Projetos similares sob demanda
 
 ---
 
 ## 👨‍💻 Desenvolvedor
 
-Desenvolvido por **Adilson Júnior**
+**Adilson Júnior - Klyven Solutions**
